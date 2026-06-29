@@ -1,10 +1,10 @@
 # Agent Handoff
 
-Last updated: 2026-06-15
+Last updated: 2026-06-27 account/data deletion page checkpoint
 
 Local project: `/Users/chanceneel/Projects/BillingBird-Store-Pages`
 Current branch snapshot: `main`
-Git status at handoff: clean and pushed
+Git status at handoff: dirty local page work, not committed or pushed
 
 GitHub remotes:
 
@@ -37,14 +37,27 @@ GitHub push readiness snapshot:
 - Antigravity complex coder: `Gemini 3.5 Flash High` for multi-file implementation and hard build/debug loops.
 - Antigravity normal coder: `Gemini 3.5 Flash Medium` for scoped features, tests, docs, and routine debugging.
 - Antigravity runner: `Gemini 3.5 Flash Low` for inspection, formatting, command interpretation, and low-risk edits.
-- Codex: local code edits, tests, repo stewardship, verification, and handoff hygiene.
+- Codex routing: use `GPT 5.5 High` as the default architect/lead for first-pass design, scope control, implementation planning, ordinary architecture decisions, and normal final review; escalate to `GPT 5.5 xhigh` only for high-risk architecture, persistence/schema migrations, security-sensitive decisions, App Store/TestFlight/release decisions, major cross-system refactors, production incidents, or final review before risky external actions; use `GPT 5.4-mini` for coding/build/test/debug loops once the plan is settled, escalating only if implementation becomes ambiguous or risky.
 
 ## Current Handoff
 
-- Active task: Store page repo handoff only.
-- Last agent: Codex committed and pushed the baseline handoff file.
-- Summary: No store page content changes beyond `AGENT_HANDOFF.md`.
-- Verification: `git diff --check` passed before commit. Final status was clean and tracking
-  `origin/main`.
-- Next steps: Continue store listing/page work from `main` as needed.
-- Blockers: None for GitHub handoff.
+- Active task: Public account/data deletion support page for App Store / Google Play compliance.
+- Last agent: Codex implemented the page locally and did not commit, push, publish, or change store
+  dashboards.
+- Summary of local changes:
+  - Added `docs/account-deletion.html` with customer-facing account/data deletion instructions.
+  - Linked the deletion page from `docs/index.html`, `docs/privacy.html`, and `docs/support.html`.
+  - Updated `README.md` to list the deletion page.
+  - Added `.gitignore` with `.DS_Store` and removed local `.DS_Store` working-tree noise.
+- Verification on 2026-06-27:
+  - Passed: `git diff --check`
+  - Passed: local content search for `account-deletion.html`, `Account and Data Deletion`, and
+    `BillingBird deletion request` across `docs/` and `README.md`.
+- Public URL status:
+  - The deletion page is local only until reviewed, committed, pushed, and deployed through GitHub
+    Pages.
+  - After publication, use the public HTTPS deletion URL for Google Play's account deletion URL.
+- Next steps:
+  - Review copy for exact store/privacy wording.
+  - Commit and push after owner approval.
+  - Verify the deployed privacy, support, and deletion pages are reachable over public HTTPS.
