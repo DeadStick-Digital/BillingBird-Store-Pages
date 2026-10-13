@@ -10,46 +10,59 @@
     <main class="page document">
       <p class="eyebrow">BillingBird</p>
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: July 16, 2026</p>
+      <p class="updated">Last updated: October 13, 2026</p>
 
       <h2>Overview</h2>
       <p>
         BillingBird is designed as a local-first business tool. Core invoice, estimate,
-        client, item, expense, receipt, payment, PDF, report, and archive records are stored
-        on your device unless you choose to export, share, back up, sync, publish, or contact
-        support.
+        client, item, expense, receipt, mileage, per diem, payment, PDF, report, and archive
+        records are stored on your device unless you choose to export, share, enable optional
+        private iCloud backup, purchase a subscription, or contact support. The canonical
+        DeadStick privacy policy is published at
+        <a href="https://www.deadstick.net/privacy.html#apps">deadstick.net/privacy.html#apps</a>.
       </p>
 
       <h2>Information You Create</h2>
       <p>
-        BillingBird may store business names, client names, addresses, phone numbers, email
-        addresses, invoice and estimate details, receipt images, expense details, payment
-        records, tax-summary data, report exports, logo files, and local archive files that
-        you enter or import into the app.
+        BillingBird stores business names, client names, addresses, phone numbers, email
+        addresses, invoice and estimate details, receipt images, expense details, mileage and
+        per diem entries, manual payment records, tax-summary data, report exports, logo files,
+        and local archive files that you enter or import into the app on your device. Unsaved
+        invoice composer input and local financial recovery state are kept in protected local
+        app storage on your device and are excluded from exported archives.
       </p>
 
       <h2>When Data Leaves Your Device</h2>
       <p>
-        Data can leave your device when you use optional features included and enabled in your
-        version of BillingBird. These may include PDF sharing, email sharing, archive
-        export/import, receipt image import, backup or cloud features, hosted documents, online
-        payments, app-store subscriptions, or support email.
+        Data leaves your device only when you use features that require external transmission:
+        explicit PDF, report, or archive export/sharing to a destination you choose; optional
+        private iCloud backup and single-active-device handoff; BillingBird Pro subscription
+        purchases, restores, and entitlement checks; or customer-initiated support messages.
       </p>
 
-      <h2>Subscriptions</h2>
+      <h2>Subscriptions (Apple App Store, Google Play &amp; RevenueCat)</h2>
       <p>
-        If BillingBird Pro subscriptions are offered in your version of the app, purchases are
-        processed by the app store and entitlement service shown at purchase. Depending on the
-        platform and release, those services may include Apple App Store, Google Play, and
-        RevenueCat. BillingBird does not store full payment-card details.
+        BillingBird Pro auto-renewable subscriptions are billed by Apple App Store or Google
+        Play and validated through RevenueCat. Subscription processing uses purchase and
+        entitlement history, product identifiers, subscription status, app-scoped subscriber
+        identifiers, and vendor device identifiers (such as IDFV on iOS) for App Functionality
+        (entitlement validation, purchase restoration, and subscription support) and
+        subscription Analytics. BillingBird does not receive or store your full payment-card
+        details, and does not use subscription data for third-party advertising or cross-app
+        tracking. See the
+        <a href="https://www.deadstick.net/terms.html#billingbird-subscription">BillingBird Subscription Terms</a>.
       </p>
 
-      <h2>Cloud, Payments, and Third-Party Services</h2>
+      <h2>Optional Private iCloud Backup &amp; Third-Party Services</h2>
       <p>
-        If you choose online or cloud-connected features, BillingBird may transmit relevant
-        account, invoice, estimate, payment, workspace, and support information to service
-        providers used to operate those features. These providers may include Apple, Google,
-        RevenueCat, Supabase, UNIPaaS, and email or support systems selected by the user.
+        On iOS, if you explicitly enable iCloud Backup, BillingBird stores a versioned SQLite
+        snapshot, app-owned attachment files, backup manifest metadata, and an active-device
+        handoff lease in your personal private Apple CloudKit container
+        (<code>iCloud.com.billingbird.app</code>). DeadStick does not operate a central cloud
+        database of your readable invoices, clients, or receipts. Online invoice checkout is
+        disabled in version 1.0.3; when optional connected payment providers (such as Stripe
+        Connect) are enabled in a future release, payment processing will occur only when you
+        explicitly connect a merchant account and create a checkout session.
       </p>
 
       <h2>Camera and Photos</h2>
@@ -60,21 +73,23 @@
 
       <h2>Security</h2>
       <p>
-        BillingBird uses platform storage and encrypted transport for network features where
-        applicable. You are responsible for controlling access to your device, backups, shared
-        files, exported PDFs, and archive files.
+        BillingBird uses platform file protection and encrypted transport for network features
+        where applicable. You are responsible for controlling access to your device, iCloud
+        account, shared files, exported PDFs, and archive files.
       </p>
 
       <h2>Data Retention and Deletion</h2>
       <p>
-        Local BillingBird records remain on your device until you delete them or remove the
-        app. Exported, shared, backed-up, or cloud-published records may also exist wherever
-        you sent them. To request help with support records or cloud-related data, contact
-        BillingBird support.
+        Local BillingBird records remain on your device until you delete them or uninstall the
+        app. Optional private iCloud backups remain in your Apple iCloud account until you
+        disable backup or delete the app's iCloud data. Subscription transaction records are
+        retained by Apple, Google, and RevenueCat as needed for entitlement management,
+        financial recordkeeping, dispute resolution, and legal obligations.
       </p>
       <p>
-        For cloud account deletion steps and support contact options, visit
-        <a href="./account-deletion.html">BillingBird Account and Data Deletion</a>.
+        For local, iCloud, and support data deletion steps, visit
+        <a href="./account-deletion.html">BillingBird Data Deletion</a> or
+        <a href="https://www.deadstick.net/deletion.html">deadstick.net/deletion.html</a>.
       </p>
 
       <h2>Children</h2>
