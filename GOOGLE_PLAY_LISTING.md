@@ -1,6 +1,7 @@
 # BillingBird Google Play Listing Draft
 
 Prepared: July 16, 2026
+Last revised: October 14, 2026 (support contact and URL alignment record, Contacts disclosure, release identity)
 
 Status: Local draft only. Nothing in this file has been uploaded or submitted to Google Play.
 
@@ -9,7 +10,8 @@ Status: Local draft only. Nothing in this file has been uploaded or submitted to
 - App name: `BillingBird`
 - Default language: English (United States) — `en-US`
 - Suggested category: Business
-- Support email: `contact@deadstick.net`
+- Support email (this listing and all three public pages): `contact@deadstick.net`
+- In-app support address (`SUPPORT_EMAIL`, `src/utils/constants.ts:11`, identical in the `android/` and `ios/` repositories; used by Settings > Support and the startup-failure screens): `support@billingbird.app`
 - Privacy policy: https://deadstick-digital.github.io/BillingBird-Store-Pages/privacy.html
 - Support: https://deadstick-digital.github.io/BillingBird-Store-Pages/support.html
 - Account deletion: https://deadstick-digital.github.io/BillingBird-Store-Pages/account-deletion.html
@@ -18,6 +20,26 @@ The three public URLs returned HTTPS 200 on July 16, 2026. The email change to
 `contact@deadstick.net` is local-only until this repository is reviewed, committed, pushed,
 and GitHub Pages finishes rebuilding. Recheck the deployed pages before entering them in
 Play Console.
+
+### Contact And URL Alignment
+
+| Surface | Value today | Source |
+| --- | --- | --- |
+| Play listing support email | `contact@deadstick.net` | this file |
+| Public privacy, support and deletion pages | `contact@deadstick.net` | `store-pages/docs/*.html` |
+| In-app support email | `support@billingbird.app` | `src/utils/constants.ts:11` (both repositories) |
+| Apple-facing legal links (iOS and Mac surfaces) | `https://www.deadstick.net/privacy.html#apps`, `https://www.deadstick.net/terms.html#apps-billingbird`, `https://www.deadstick.net/deletion.html#billingbird` | `src/constants/appleLegal.ts` |
+| Android privacy information in the app | on-screen text, no URL | `app/settings/privacy.tsx` |
+
+OWNER DECISION (default recorded, nothing applied to the app): the listing keeps
+`contact@deadstick.net`, the only support address the three public pages publish and the one
+Play Console must verify. The in-app address differs. Before any upload the owner confirms
+that `support@billingbird.app` receives mail, or approves a follow-up change that sets
+`SUPPORT_EMAIL` to `contact@deadstick.net` in both repositories' `src/utils/constants.ts` and
+in the literal that `scripts/verify-settings-support.cjs` asserts (line 171). That follow-up
+touches shared, gate-asserted code, so it is not part of this documentation task. The privacy
+text on the github.io page, the deadstick.net page and the in-app privacy screen must say the
+same thing about Contacts, backup and subscriptions; recheck all three after publication.
 
 ### Short Description
 
@@ -116,14 +138,23 @@ from the Apple build or from planned Android features.
   lending, investing, money transfer, or payment processing unless shipped.
 - [ ] Health app declaration: verify and answer from the released app; expected answer is no.
 - [ ] Permissions and sensitive APIs: reconcile every manifest permission and Play declaration
-  with an active, user-visible feature in the release build.
+  with an active, user-visible feature in the release build. The release declares CAMERA,
+  READ_CONTACTS and WRITE_CONTACTS (client import and save-back, on the device only),
+  POST_NOTIFICATIONS, RECEIVE_BOOT_COMPLETED, WAKE_LOCK, VIBRATE, USE_BIOMETRIC,
+  USE_FINGERPRINT, INTERNET, ACCESS_NETWORK_STATE, the two legacy external-storage entries
+  and `com.android.vending.BILLING`; the exact list is `config/android-data-flow-inventory.json`
+  in the Android repository. The public privacy policy discloses Contacts in its "Device Contacts"
+  section; republish the privacy page before submission.
 - [ ] Store listing contact details: enter and verify `contact@deadstick.net` as the customer-facing
   support email, subject to Play's email verification step.
 - [ ] Developer account details: use the verified DeadStick Digital organization information and
   keep Google's private account-contact address separate from the public app-support address where
   practical.
 - [ ] Package and release identity: verify package name, app signing enrollment, upload key
-  custody, version name, and monotonically increasing version code before any upload.
+  custody, version name, and monotonically increasing version code before any upload. The
+  first signed candidate is version name `1.0.4`, version code `2` (`app.json`, decision D7);
+  the signed AAB comes from `npm run sign:android:release` and its receipt
+  `build/android-release-signed-receipt.json`.
 - [ ] Testing: use an internal track for the first approved upload, then closed testing for
   controlled validation before any production rollout.
 - [ ] Billing and subscriptions: do not configure or advertise Play Billing or RevenueCat products
